@@ -1,0 +1,6 @@
+@Bre_easyAPI_HostAddress = http://localhost:5045
+
+GET {{Bre_easyAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
