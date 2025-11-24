@@ -3,8 +3,8 @@
     public class Window
     {
         private string _windowName;
-        private int _windowWidth;
-        private int _windowHeight;
+        private string _location;
+        private string _timeLastOpened;
         private bool _isOpen;
 
         public string WindowName
@@ -13,16 +13,16 @@
             set { _windowName = value; }
         }
 
-        public int windowWidth
-        {
-            get { return _windowWidth; }
-            set { _windowWidth = value; }
+        public string Location 
+        { 
+            get { return _location; } 
+            set { _location = value; }
         }
 
-        public int WindowHeight
+        public DateTime TimeLastOpened
         {
-            get { return _windowHeight; }
-            set { _windowHeight = value; }
+            get { return _timeLastOpened; }
+            set { _timeLastOpened = value; }
         }
 
         public bool IsOpen
@@ -30,16 +30,12 @@
             get { return _isOpen; }
             set { _isOpen = value; }
         }
-        public void ToggleOpen()
-        {
-            _isOpen = !_isOpen;
-        }
 
-        public Window(string WindowName, int WindowWidth, int WindowHeight, bool IsOpen)
+        public Window(string WindowName, string Location, DateTime TimeLastOpened, bool IsOpen)
         {
             _windowName = WindowName;
-            _windowHeight = WindowHeight;
-            _windowWidth = WindowWidth;
+            _location = Location;
+            _timeLastOpened = TimeLastOpened;
             _isOpen = IsOpen;
         }
 
