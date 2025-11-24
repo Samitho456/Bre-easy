@@ -3,6 +3,7 @@
     public class Window
     {
         private string _windowName;
+        public int Id { get; set; }
 
         public string WindowName
         {
@@ -23,13 +24,14 @@
 
         public bool IsOpen { get; set; }
 
-        public Window(string windowName, int locationId , DateTime timeLastOpened, bool isOpen)
+        public Window(int id, string windowName, int locationId , DateTime timeLastOpened, bool isOpen)
         {
+            Id = id;
             WindowName = windowName;
             LocationId = locationId;
             TimeLastOpened = timeLastOpened;
             IsOpen = isOpen;
         }
-
+        public Window() { }
     }
 }

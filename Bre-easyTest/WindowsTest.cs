@@ -8,7 +8,7 @@ namespace Bre_easyTest
         [TestMethod]
         public void TestCreateWindow()
         {
-            Window window = new Window("Living Room Window", 1, DateTime.Now ,false);
+            Window window = new Window(1, "Living Room Window", 1, DateTime.Now ,false);
             Assert.AreEqual("Living Room Window", window.WindowName);
             Assert.AreEqual(1, window.LocationId);
             Assert.AreEqual(false, window.IsOpen);
@@ -17,10 +17,7 @@ namespace Bre_easyTest
         [TestMethod]
         public void TestTooShortWindowName()
         {
-            Assert.ThrowsException<ArgumentException>(() => new Window("", 1, DateTime.Now, false));
+            Assert.ThrowsException<ArgumentException>(() => new Window(1, "", 1, DateTime.Now, false));
         }
-
-
-
     }
 }

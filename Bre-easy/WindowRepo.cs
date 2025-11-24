@@ -8,39 +8,54 @@ namespace Bre_easy
 {
     public class WindowRepo : IRepo<Window>
     {
+        private static int _idCounter = 1;
         private List<Window> _windowDb = new List<Window>();
 
         public WindowRepo() { }
 
         public void Add(Window obj)
         {
-            
-        
+            obj.Id = _idCounter++;
+            _windowDb.Add(obj);
         }
 
         public IEnumerable<Window> GetAll()
         {
-            throw new NotImplementedException();
+            IEnumerable<Window> windows = new List<Window>(_windowDb);
+            return windows;
         }
 
         public Window GetById(int id)
         {
-            throw new NotImplementedException();
+            return _windowDb.FirstOrDefault(w => w.Id == id);
         }
 
         public Window GetByLocation(int id)
         {
-            throw new NotImplementedException();
+            return _windowDb.FirstOrDefault(w => w.LocationId == id);
         }
 
         public Window Remove(int id)
         {
-            throw new NotImplementedException();
+            Window windowToRemove = GetById(id);
+            if (windowToRemove != null)
+            {
+                _windowDb.Remove(windowToRemove);
+            }
+            return windowToRemove;
         }
 
         public Window Update(int id, Window obj)
         {
-            throw new NotImplementedException();
+            Window windowToUpdate = GetById(id);
+            if (windowToUpdate != null)
+            {
+                windowToUpdate.WindowName = obj.WindowName;
+                windowToUpdate.LocationId = obj.LocationId;
+                windowToUpdate.TimeLastOpened = obj.TimeLastOpened;
+                windowToUpdate.IsOpen = obj.IsOpen;
+            }
+            return windowToUpdate;
         }
     }
 }
