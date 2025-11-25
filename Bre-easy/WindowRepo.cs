@@ -8,7 +8,7 @@ namespace Bre_easy
 {
     public class WindowRepo : IRepo<Window>
     {
-        private static int _idCounter = 1;
+        private int _idCounter = 1;
         private List<Window> _windowDb = new List<Window>();
 
         public WindowRepo() { }

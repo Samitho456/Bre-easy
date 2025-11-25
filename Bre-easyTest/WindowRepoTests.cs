@@ -43,6 +43,7 @@ namespace Bre_easy.Tests
         public void GetByIdTest()
         {
             var window = _windowRepo.GetById(2);
+            Console.WriteLine(window.ToString());
             Assert.IsNotNull(window);
             Assert.AreEqual("Living Room Window", window.WindowName);
         }
